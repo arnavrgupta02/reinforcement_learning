@@ -16,7 +16,7 @@ print("Time Step : 0")
 env.render()
 for t in range(t_s):
     random_action = env.action_space.sample()
-    next_state,reqard,done,info,prob=env.step(random_action)
+    next_state,reward,done,info,prob=env.step(random_action)
     print("Time Step {}".format(t+1))
     if(done):
         break
