@@ -11,7 +11,7 @@ def value_iteration(env):
     num_itns = 1000
     threshold = 1e-20
     gamma = 1.0
-    value_table = np.zeroes(env.observation_space.n)
+    value_table = np.zeros(env.observation_space.n)
     for i in range(num_itns):
         updated_val_tab = np.copy(value_table)
         for s in range(env.observation_space.n):
@@ -37,3 +37,6 @@ def extract_policy(value_table):
 env = gym.make('FrozenLake-v1', render_mode="human")
 env.reset()
 env.render()
+optimal_value_function = value_iteration(env)
+optimal_policy = extract_policy(optimal_value_function)
+print(optimal_policy)
